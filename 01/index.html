@@ -8,6 +8,13 @@
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <style>
+
+        #app {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         .movieCard {
             margin-top: 100px;
             margin-left: 100px;
@@ -37,25 +44,26 @@
     <div id="app"></div>
 
     <script type="text/babel">
-        const movie_Card = ({img, name, years}) => {
+
+        const MovieCard = ({img, name, years}) => {
             return (
                 <div className="movieCard">
                     <img width="200px" height="250px" src={img} alt={`movieCard: ${name}`}/>
-                    <h1 className="movieCard-title">{name}</h1>
+                    <h3 className="movieCard-title">{name}</h3>
                     <p className="movieCard-text">год выпуска: {years}</p>
                 </div>
             );
         };  
 
-        const Movie_Card = (
+        const MovieCards = (
             <>
-                <movieCard img="https://thumbs.dfs.ivi.ru/storage15/contents/8/6/16b2bac2ff70978c6b40e17fddcc34.jpg" name="Остров проклятых" years="2010" /> 
-                <movieCard img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9WuCpYeEdIgg-XL16-KY68F65Emrienx1cnvKDSIc4w&s" name="Гладиатор" years="2000" />    
-                <movieCard img="https://avatars.mds.yandex.net/get-kinopoisk-image/1946459/bf93b465-1189-4155-9dd1-cb9fb5cb1bb5/600x900" name="	1+1" years="2011" />
+                <MovieCard img="https://thumbs.dfs.ivi.ru/storage15/contents/8/6/16b2bac2ff70978c6b40e17fddcc34.jpg" name="Остров проклятых" years="2010" /> 
+                <MovieCard img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9WuCpYeEdIgg-XL16-KY68F65Emrienx1cnvKDSIc4w&s" name="Гладиатор" years="2000" />    
+                <MovieCard img="https://avatars.mds.yandex.net/get-kinopoisk-image/1946459/bf93b465-1189-4155-9dd1-cb9fb5cb1bb5/600x900" name="1+1" years="2011" />
             </>
         );
 
-        ReactDOM.render(Movie_Card, document.getElementById('app'));
+        ReactDOM.render(MovieCards, document.getElementById('app'));
         
 
         
