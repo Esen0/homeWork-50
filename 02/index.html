@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,112 @@
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <div id="app"></div>
+    <div id="container"></div>
+    <div id="footer"></div>
+
+
+
+
 
     <script type="text/babel">
-        
+        const Header = ({ img, name }) => {
+            return (
+                <header>
+                    <a href="#">
+                        <img src={img} alt={`logo: ${name}`} />
+                    </a>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="#">home</a>
+                            </li>
+                            <li>
+                                <a href="#">buy</a>
+                            </li>
+                            <li>
+                                <a href="#">Catalog</a>
+                            </li>
+                            <li>
+                                <a href="#">basket</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
+            );
+        };
+
+        const Sidebar = () => {
+            return (
+                <div className="sidebar">
+                    <ul>
+                        <li>
+                            <a href="#">home</a>
+                        </li>
+                        <li>
+                            <a href="#">settings</a>
+                        </li>
+                        <li>
+                            <a href="#">profile</a>
+                        </li>
+                        <li>
+                            <a href="#">logout</a>
+                        </li>
+                    </ul>
+                </div>
+            );
+        };
+
+        const Content = ({ img, title, text }) => {
+            return (
+                <div id="content">
+                    <h1>{title}</h1>
+                    <p>{text}</p>
+                    <img src={img} alt="content" />
+                </div>
+            );
+        };
+
+        const Footer = () => {
+            return (
+                <footer>
+                    <p>&copy; 2024 Ваше название компании. Все права защищены.</p>
+                </footer>
+            );
+        };
+
+        const Container = () => {
+            return (
+                <div id="container">
+                    <Sidebar />
+                    <Content
+                        title="New members get 50% off"
+                        text="Join Starbucks Rewards by the end of May and get 50% off a handcrafted drink during your first week as a new member. Just download the app to sign up.**"
+                        img="https://content-prod-live.cert.starbucks.com/binary/v2/asset/137-91796.jpg"
+                    />
+                </div>
+            );
+        };
+
+        const MainMarkup = () => {
+            return (
+                <div id="main-markup">
+                    <Header img="https://upload.wikimedia.org/wikipedia/ru/3/35/Starbucks_Coffee_Logo.svg" name="Starbucks" />
+                </div>
+            );
+        };
+
+        ReactDOM.render(<MainMarkup />, document.getElementById('app'));
+        ReactDOM.render(<Container />, document.getElementById('container'));
+        ReactDOM.render(<Footer />, document.getElementById('footer'));
+
+
+
     </script>
 </body>
+
 </html>
